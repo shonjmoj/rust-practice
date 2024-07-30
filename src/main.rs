@@ -16,7 +16,10 @@ fn main() -> Result<(), ProgramError> {
     let s1 = &args[2];
     let s2 = &args[3];
 
-    let _ = search_and_replace(&mut file_name, s1, s2);
+    match search_and_replace(&mut file_name, s1, s2) {
+        Err(e) => println!("{}", e),
+        Ok(_) => (),
+    };
 
     Ok(())
 }
